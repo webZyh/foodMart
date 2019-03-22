@@ -1,0 +1,20 @@
+语言/协议
+	ECMAScript6
+	nodejs
+	npm工具
+	HTTP协议
+	TypeScript
+
+框架
+	Koa
+	Vue
+	ElementUI
+
+项目时间
+	2课时：ECMAScript6新特性
+	5课时：node基础
+	4课时：node后端框架koa、数据库mysql
+	2课时：TypeScript
+	TS重写vue
+	项目开发	www.meishichina.com
+	打包发布

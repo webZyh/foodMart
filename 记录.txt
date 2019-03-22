@@ -1,0 +1,169 @@
+symbol
+	let s = Symbol()		属性私有化
+
+var
+	支持变量声明预解析
+	不支持块级作用域
+	允许重复声明
+let			选项卡优化
+const
+
+解构赋值：按照一定的模式，从数组和对象中提取值，并对变量进行赋值
+	数组
+
+	对象
+
+扩展运算符:把数组/对象转成参数序列（使用逗号分隔的序列）
+	...
+	['a,'b','c'] => 'a','b','c'
+	{left:100,top:200} => left: 100, top: 200
+
+	应用：Math.max( ...arr )
+			数组合并:[...arr1,...arr2]
+
+unicode表示法
+		- http://www.unicode.org/
+		- http://www.unicode.org/emoji/charts/
+
+	console.log('\u{1F602}')
+
+模板字符串	` `
+	变量表达式解析：	${变量名}	
+	支持表达式、变量，不支持语句
+
+对象简介表示法
+	var a = 1;
+	var fn = function(){}
+	var obj = {
+		a:a,
+		fn:fn
+	}
+	var obj = {
+		a,
+		fn
+	}
+
+迭代
+	for in		打印key
+	for of		打印value
+
+rest参数
+
+function(arr,...args){		
+	for(var i=0;i<args.length;i++){		//args是数组
+		arr.push(args[i])
+	}
+}
+
+箭头函数 ()=>{}
+	使用的注意事项
+	this指向： 
+		普通函数：是在函数执行时确定的，谁调用指向谁
+		箭头函数：在函数创建期间就确定了，指向父函数的this
+	事件（onclick）一般不会绑定箭头函数
+	不能作为构造函数
+	没有arguments
+	不能作为生成器函数
+
+ES内置对象
+
+String
+Number
+Array
+
+	every	满足所有的条件
+	some	满足部分条件
+	filter	过滤。产生新数组
+	map	映射，产生新数组
+	
+	reduce	拆分
+		arr.reduce(function(prev , current){	
+			//prev:上一次的结果，current：当前的值
+			return prev + current
+		} , 0 )	//0表示结果的初始值
+
+Object
+	assign() 合并对象，后面覆盖前面，返回的是前面的对象
+		Object.assign(obj1,{x:10,y:2})	
+
+
+	create()	创建对象
+		以某个对象为原型创建对象
+ 
+
+	freeze()	冻结对象
+
+	defineProperty()	添加对象的属性
+		defineProperty(obj,属性名,{定义属性})
+		Object.defineProperty(obj,x,{ value:1,  })
+		其他添加对象属性的方法
+		.	obj.x = 1
+		[]	obj['x']=1
+
+
+数据结构 Set
+	new Set() 
+	集合，类似数组，key和value相同，没用重复的value
+	属性：size
+	方法：add()	delete()	has()	clear()		keys():返回键名的遍历器
+	values()：返回键值得遍历器
+	entries()：返回键值对的遍历器
+	forEach()：
+
+数据结构Map
+	let map = new Map()
+
+	属性：size
+	方法: set(key,value)
+		get(key)
+		delete(key)
+		has(key)
+		clear()
+		...
+
+	map.set({},'x').set({},'y')
+	map的key跟内存地址绑定
+
+	map里面的key的排列顺序是按照顺序进行排列的
+
+interator（翻译：交互器）	迭代
+
+类class 
+	class Person{
+		constructor(name){
+			this.name = name;
+		}
+		getName(){
+			console.log(this.name)
+		}
+	}
+
+	let p = new Person('张三')
+
+继承extends
+	class Student extends Person {
+		constructor(name,type){
+			//super 表示父类,继承父类
+			super(name);
+			this.type = type;
+		}
+	}
+	let s = new Student('张三'，'A1')
+
+解决异步问题
+Promise
+	Promise.all().then()
+	Promise.race().then()
+
+Generator 迭代器
+
+async	await
+
+-------------------------------
+
+
+
+
+
+
+

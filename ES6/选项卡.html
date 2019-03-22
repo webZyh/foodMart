@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>选项卡</title>
+	<style>
+		button.active{
+			background: yellow;
+		}
+		div.active{
+			display: block;
+		}
+		div{
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<button class="active">选项一</button>
+	<button>选项二</button>
+	<button>选项三</button>
+	<div class="active">内容一</div>
+	<div>内容二</div>
+	<div>内容三</div>
+</body>
+<script>
+	window.onload=function(){
+		var aBtn = document.querySelectorAll('button');
+		var aDiv = document.querySelectorAll('div');
+
+		/*原始方法 aBtn[i].index = i;
+			
+		 */
+		for(var i = 0;i<aBtn.length;i++){
+			aBtn[i].index = i;
+			aBtn[i].onclick = function(){
+				for(var i = 0;i<aBtn.length;i++){
+					aBtn[i].className = '';
+					aDiv[i].className = '';
+				}
+				this.className = 'active';
+				aDiv[this.index].className = 'active';
+			}
+		}
+		/*
+			使用let声明，使i在{}作用域下有独立的i
+		 */
+		/*for(let i = 0;i<aBtn.length;i++){
+
+			aBtn[i].onclick = function(){
+				for(let i = 0;i<aBtn.length;i++){
+					aBtn[i].className = '';
+					aDiv[i].className = '';
+				}
+				this.className = 'active';
+				aDiv[i].className = 'active';
+			}
+		}*/
+		/*闭包*/
+		/*for(var i = 0;i<aBtn.length;i++){
+			(function(i){
+				aBtn[i].onclick = function(){
+					for(let i = 0;i<aBtn.length;i++){
+						aBtn[i].className = '';
+						aDiv[i].className = '';
+					}
+					this.className = 'active';
+					aDiv[i].className = 'active';
+				}
+			})(i)
+			
+		}*/
+	}
+</script>
+</html>
